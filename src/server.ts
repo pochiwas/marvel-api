@@ -21,8 +21,6 @@ app.use(cors());
 // Conectar a la base de datos y arrancar el servidor
 const startServer = async () => {
   try {
-    
-    console.log("Conexión a la base de datos exitosa.");
     // Sincroniza los modelos con la base de datos
     
     const PORT = process.env.PORT || 3000;
@@ -30,7 +28,7 @@ const startServer = async () => {
       console.log(`Servidor corriendo en http://localhost:${PORT}`);
     });
   } catch (error:any) {
-    console.error("Error al conectar a la base de datos:", error);
+    console.error("Error :", error);
   }
 };
 
