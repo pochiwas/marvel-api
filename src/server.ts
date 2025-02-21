@@ -4,6 +4,7 @@ import bodyParser from "body-parser";
 import cors from "cors";
 
 
+
 // Cargar variables de entorno desde .env
 dotenv.config();
 
@@ -17,6 +18,12 @@ app.use(bodyParser.json({ type: "application/*+json" }));
 app.use(cors());
 
 // Rutas
+app.use("/api/comics", require("./routes/comics.routes"));
+app.use("/api/characters", require("./routes/characters.routes"));
+app.use("/api/creators", require("./routes/creators.routes"));
+app.use("/api/events", require("./routes/events.routes"));
+app.use("/api/series", require("./routes/series.routes"));
+app.use("/api/stories", require("./routes/stories.routes"));
 
 // Conectar a la base de datos y arrancar el servidor
 const startServer = async () => {
@@ -27,8 +34,10 @@ const startServer = async () => {
     app.listen(PORT, () => {
       console.log(`Servidor corriendo en http://localhost:${PORT}`);
     });
+    
   } catch (error:any) {
     console.error("Error :", error);
+    
   }
 };
 
